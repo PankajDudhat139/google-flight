@@ -5,8 +5,8 @@ import type { Airport } from "../types";
 interface AirportSearchProps {
   label: string;
   placeholder: string;
-  value: string;
   displayValue: string;
+  value?: string;
   onChange: (airport: Airport) => void;
   onSearch: (query: string) => Promise<Airport[]>;
 }
@@ -14,8 +14,8 @@ interface AirportSearchProps {
 const AirportSearch: React.FC<AirportSearchProps> = ({
   label,
   placeholder,
-  value,
   displayValue,
+  value,
   onChange,
   onSearch,
 }) => {
@@ -23,7 +23,7 @@ const AirportSearch: React.FC<AirportSearchProps> = ({
   const [suggestions, setSuggestions] = useState<Airport[]>([]);
   const [loading, setLoading] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const debounceRef = useRef<NodeJS.Timeout>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -80,6 +80,7 @@ const AirportSearch: React.FC<AirportSearchProps> = ({
       <label className="block mb-2 text-gray-700 font-semibold text-base flex items-center gap-2">
         <MapPin className="w-5 h-5 text-blue-500" />
         <span>{label}</span>
+        <span className="hidden">{value}</span>
       </label>
       <div className="relative">
         <input

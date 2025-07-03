@@ -56,7 +56,7 @@ const FlightDetail: React.FC = () => {
       </div>
 
       <div className="space-y-6">
-        {flight.legs.map((leg, idx) => (
+        {flight.legs.map((leg) => (
           <div
             key={leg.id}
             className="bg-white rounded-lg shadow p-5 flex flex-col md:flex-row gap-6"

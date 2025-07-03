@@ -23,29 +23,46 @@ export interface Airport {
 }
 
 export interface FlightLeg {
+  id: string;
   departure: string;
   arrival: string;
   durationInMinutes: number;
   carriers: {
     marketing: Array<{
       name: string;
+      logoUrl: string;
     }>;
   };
   segments: Array<any>;
   origin: {
     displayCode: string;
+    city: string;
   };
   destination: {
     displayCode: string;
+    city: string;
   };
+  stopCount: number;
+}
+
+export interface FarePolicy {
+  // Define properties as needed, for example:
+  isChangeAllowed: boolean;
+  isPartiallyChangeable: boolean;
+  isCancellationAllowed: boolean;
+  isPartiallyRefundable: boolean;
 }
 
 export interface Flight {
-  legs: FlightLeg[];
   price: {
-    formatted?: string;
-    raw?: string;
+    amount: number;
+    formatted: string;
+    raw: string;
+    
   };
+  legs: FlightLeg[];
+  farePolicy: FarePolicy;
+  tags?: string[];
 }
 
 export interface CabinOption {
