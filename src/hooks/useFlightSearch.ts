@@ -13,9 +13,9 @@ export const useFlightSearch = () => {
     cabinClass: 'economy',
     adults: '1',
     sortBy: 'best',
-    currency: '',
-    market: '',
-    countryCode: ''
+    currency: 'USD',
+    market: 'en-US',
+    countryCode: 'US'
   });
   
   const [flights, setFlights] = useState<Flight[]>([]);
@@ -31,7 +31,7 @@ export const useFlightSearch = () => {
         {
           method: 'GET',
           headers: {
-            'x-rapidapi-key': '492dabf5b3msh2c3fd0f1bdd1755p14e307jsnbb07a84b3693',
+            'x-rapidapi-key': '28a1667b06msh50e3a1fce794fd5p160731jsne6a25eeba7f0',
             'x-rapidapi-host': 'sky-scrapper.p.rapidapi.com'
           }
         }
@@ -91,7 +91,7 @@ export const useFlightSearch = () => {
         {
           method: 'GET',
           headers: {
-            'x-rapidapi-key': '492dabf5b3msh2c3fd0f1bdd1755p14e307jsnbb07a84b3693',
+            'x-rapidapi-key': '28a1667b06msh50e3a1fce794fd5p160731jsne6a25eeba7f0',
             'x-rapidapi-host': 'sky-scrapper.p.rapidapi.com'
           }
         }
